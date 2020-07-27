@@ -9,6 +9,7 @@ const geocode = require('./utils/geocode')
 
 const app = express()
 
+const port = process.env.PORT || 3000
 //Define path for Express config
 const publicPath = path.join(__dirname, '../public')
 const partialsPath = path.join(__dirname, '../partials')
@@ -132,5 +133,7 @@ app.get('/help/*' , (req, res) => {
 app.get('*' , (req, res) => { res.send('My 404 Page')})
 
 
-app.listen(3000, () => console.log('Server is up'))
+app.listen(port, () => { 
+    console.log('Server is up at' + port ) 
+})
 
